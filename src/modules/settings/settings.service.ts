@@ -29430,7 +29430,7 @@ export class SettingsService {
         Cache.DeleteCacheData(newTopic);
       }
       var mqttdata: any = await Cache.GetCacheData(newTopic);
-      console.log(newTopic); // ผลลัพธ์: 'BAACTW02/DATA'
+      console.log(newTopic); 
       if (message_mqtt == 0) {
         var dataObject: any = {
           timestamp: timestamp,
@@ -33746,13 +33746,13 @@ export class SettingsService {
           Cache.DeleteCacheData(newTopic);
         }
         var mqttdata = await Cache.GetCacheData(newTopic);
-        console.log(newTopic); // ผลลัพธ์: 'BAACTW02/DATA'
+        console.log(newTopic); 
         if (message_control == 'ON') {
           var message_status: any = 1;
         } else {
           var message_status: any = 0;
         }
-        console.log(newTopic); // ผลลัพธ์: 'BAACTW02/DATA'
+        console.log(newTopic); 
         if (
           message_mqtt == 1 ||
           message_mqtt == 'on' ||

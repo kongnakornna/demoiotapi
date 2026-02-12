@@ -53,7 +53,6 @@ import {
   ApiBody,
 } from '@nestjs/swagger';
 import { Throttle } from '@nestjs/throttler';
-//   @Throttle({ default: { limit: 5, ttl: 60000 } }) // 5 attempts per minute
 import { SettingsService } from '@src/modules/settings/settings.service';
 // import * as cache from '@src/utils/cache/redis.cache';
 import * as rediscluster from '@src/utils/cache/rediscluster.cache';
@@ -63,7 +62,6 @@ import 'dotenv/config';
 require('dotenv').config();
 const API_VERSION = '1';
 import * as argon2 from 'argon2';
-//console.log('SECRET_KEY: '+process.env.SECRET_KEY)
 import { JwtService } from '@nestjs/jwt';
 import * as format from '@src/helpers/format.helper'; 
 import * as iothelper from '@src/helpers/iot.helper';
@@ -12536,7 +12534,7 @@ export class MqttController {
         throw e;
       }
       var mqtt_obj2_data = Object.values(obj2);
-      var mqtt2_count: any = mqtt_obj2_data.length;
+      var mqtt_count: any = mqtt_obj2_data.length;
       var mqtt_v1 = Object.fromEntries(
         mqtt_obj2_data.map((k, i) => [k, mqtt_data[i]]),
       );
@@ -16168,7 +16166,7 @@ export class MqttController {
       ].join(':');
       // รวมวันที่และเวลาเข้าด้วยกัน
 
-      // var UrlMqtts:any = 'mqtt://broker.hivemq.com:1883';//process.env.MQTT_HOSTs;
+      // var UrlMqtts:any = 'mqtt://broker.mmm.com:1883';//process.env.MQTT_HOSTs;
       // var checkConnectionMqtts:any = await this.mqttService.initializeMqttClient(UrlMqtts);
       // res.status(200).json({
       //             statuscode: 200,
@@ -17296,7 +17294,7 @@ export class MqttController {
         var now_time_s: any = timestamp;
         var control_url =
           process.env.API_URL +
-          '/v1/mqtt2/control?topic=' +
+          '/v1/mqtt/control?topic=' +
           mqtt_data_control +
           '&message=' +
           message_mqtt_control;

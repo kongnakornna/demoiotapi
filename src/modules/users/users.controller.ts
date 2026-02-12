@@ -69,12 +69,6 @@ export class UsersController {
     private authService: AuthService,
     private readonly jwtService: JwtService,
   ) {}
-  /*
-      @Roles(Role.Admin) // กำหนดว่าต้องเป็น Admin เท่านั้น
-      @UseGuards(AuthGuard, RolesGuard) // ใช้ Guard ทั้งสองตัว
-      createProduct(@Body() createProductDto: CreateProductDto) {
-      // logic สำหรับสร้างสินค้า
-  */
   @HttpCode(HttpStatus.OK)
   @AuthUserRequired()
   @UseGuards(AuthGuardUser)  

@@ -3449,20 +3449,6 @@ export class SettingsController {
     filter2.org = query.org || '';
     filter2.bucket = query.bucket || '';
     filter2.status = status || 1;
-    console.log(`filter2=`);
-    console.info(filter2);
-    // const deletecache:any=query.deletecache || 0;
-    // var cachekey='device_list_ststus_alarm_'+md5(filter2);
-    // if(deletecache==1){
-    //   await Cache.DeleteCacheData(cachekey);
-    // }
-    // var tempDataRs:any =  await Cache.GetCacheData(cachekey);
-    // if(!tempDataRs){
-    //     var tempData2:any =  await Cache.GetCacheData(cachekey);
-    // }else{
-    //   var InpuDatacache:any={keycache: `${cachekey}`,time: 10,data: tempData2};
-    //     await Cache.SetCacheData(InpuDatacache);
-    // }
     var tempData2: any = [];
     /*******************/
     let ResultData: any =
@@ -13710,7 +13696,6 @@ export class SettingsController {
     var sort = query.sort;
     var keyword = query.keyword || '';
 
-    // สร้าง filter สำหรับนับจำนวนข้อมูล
     var filter = {
       sort,
       device_id,
@@ -13726,12 +13711,6 @@ export class SettingsController {
       createddate: query.date || '',
       isCount: 1,
     };
-    // นับจำนวนข้อมูลทั้งหมด
-    /*
-        get_data_schedule_device
-        create_schedule_device
-        delete_schedule_device
-    */
     if (
       alarm_action_id == '' ||
       alarm_action_id == 'undefined' ||
@@ -17031,7 +17010,6 @@ export class SettingsController {
         var cache_data_ResultData: any = 'no cache';
       }
       //////////////////////
-      //res.status(200).json({ResultData:ResultData});
       var tempDataoid: any = [];
       for (const [key, va] of Object.entries(ResultData)) {
         var alarm_action_id_master: number = parseInt(
@@ -17142,7 +17120,6 @@ export class SettingsController {
         }
         /**************Cache*************/
         if (alarmdevice) {
-          //var count_device:number= parseInt(alarmdevice.length);
           var count_device: number = 0;
           if (alarmdevice && Array.isArray(alarmdevice)) {
             count_device = alarmdevice.length;
@@ -17152,7 +17129,6 @@ export class SettingsController {
         }
         alarm_config.count_device = count_device;
         /***************************/
-        // return res.status(200).json({message: 'Data  alarmdevice',message_th: 'พบข้อมูล alarmdevice',payload: alarmdevice,});
         var alarm_device_arr: any = [];
         if (alarmdevice) {
           for (const [key, value] of Object.entries(alarmdevice)) {
@@ -24613,18 +24589,7 @@ export class SettingsController {
     try {
       var main_type_id: number = Number(query.type_id);
       var device_id: any = query.device_id;
-      var device_id_mas: any = query.device_id;
-      // if(main_type_id==1){
-      //     var main_status_alert:any= query.status_alert;
-      //     var main_status_warning:any= query.status_warning;
-      //     var main_recovery_warning:any= query.recovery_warning;
-      //     var main_recovery_alert:any= query.recovery_alert;
-      // }else{
-      //     var main_status_alert:any= 0;
-      //     var main_status_warning:any= 0;
-      //     var main_recovery_warning:any= 1;
-      //     var main_recovery_alert:any= 1;
-      // }
+      var device_id_mas: any = query.device_id
       var main_mqtt_name: any = query.mqtt_name;
       var main_event: any = query.event;
       var event: number = Number(query.event);

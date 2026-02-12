@@ -123,7 +123,7 @@ import { mqttlog } from '@src/modules/iot/entities/mqttlog.entity';
             return {
               transport: Transport.MQTT,
               options: {
-                url: process.env.MQTT_HOST2 || 'mqtt://broker.hivemq.com:1883',
+                url: process.env.MQTT_HOST2 || 'mqtt://broker.mmm.com:1883',
                 clientId: `nestjs-client-${Math.random().toString(16).slice(3)}`,
                 serializer: {
                   serialize: (value: any) => value.data,

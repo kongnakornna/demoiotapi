@@ -156,81 +156,27 @@ var filePath = join(__dirname, 'public', 'emailConfigs.json');
       inject: [getRepositoryToken(Email)],
       useFactory: async (emailRepo: Repository<Email>) => {
         try {
-          // ลองดึงจาก database ก่อน
           const emailConfig = await emailRepo.findOneBy({ status: 1 });
-          // ใช้ค่าจาก database หรือ environment variables หรือ default
-          var setup :number=Number(2); // 1 figdata  2= db
-          const host:any = emailConfig?.host || process.env.SMTP_HOST || '172.29.16.52';
-          const port:number=  Number(emailConfig?.port) || Number(process.env.SMTP_PORT) || 587;
-          const username :any = emailConfig?.username || process.env.SMTP_USER || 'strux.ware';
-          const password :any =  emailConfig?.password || process.env.SMTP_PASS || 'baac@123';
+          var setup :number=Number(2); 
+          const host:any = emailConfig?.host || process.env.SMTP_HOST;
+          const port:number=  Number(emailConfig?.port) || Number(process.env.SMTP_PORT);
+          const username :any = emailConfig?.username || process.env.SMTP_USER ;
+          const password :any =  emailConfig?.password || process.env.SMTP_PASS;
           const secure :any =  process.env.SMTP_SECURE !== 'false'; // default true
-          /*
-                  // MailerModule.forRoot({
-                  //   // transport: {
-                  //               //   host: "172.29.16.52",
-                  //               //   port: 587,
-                  //               //   secure: false,
-                  //               //   auth: {
-                  //               //     user: "strux.ware",
-                  //               //     pass: 'baac@123',
-                  //               //   },
-                  //               //   tls: {
-                  //               //       rejectUnauthorized: false
-                  //               //   }
-                  //               // }, 
-                  //   transport: {
-                  //                   host: 'smtp.gmail.com',
-                  //                   port: 465,
-                  //                   secure: true, // true for port 465, false for port 587
-                  //                   auth: {
-                  //                     user: 'icmon0955@gmail.com',
-                  //                     pass: 'ccwaijtieoujbojk',
-                  //                   },
-                  //                   tls: {
-                  //                       rejectUnauthorized: false
-                  //                   }
-                  //               },
-                  //  transport: {
-                  //           host: process.env.MAIL_HOST,
-                  //           port: Number(process.env.MAIL_PORT),
-                  //           secure: true, // true for port 465, false for port 587
-                  //           auth: {
-                  //             user: process.env.MAIL_USERMAIL_USER,
-                  //             pass: process.env.MAIL_PASSWORD,
-                  //           },
-                  //           tls: {
-                  //               rejectUnauthorized: false
-                  //           }
-                  //         }, 
-                  defaults: {
-                    // from: '"No Reply" <cmoniots@gmail.com>',
-                    // from: '"iCmon No iCMON Reply" <strux.ware@inbaac.com>',
-                    from: '"iCmon No Reply" <'+FROM_EMAIL+'>',
-                  },
-                  // Optionally enable templating
-                  // template: {
-                  //   dir: join(__dirname, 'templates'),
-                  //   adapter: new HandlebarsAdapter(),
-                  //   options: { strict: true },
-                  // },
-                }),
-              */
           console.log('Email configuration:', { 
             source: emailConfig ? 'database' : 'environment', 
             host, 
             port 
           });
           if(setup==1){
-                // Fix data---------------
                 return {
                   transport: { 
-                            host: '172.29.16.52',
+                            host: '192.168.1.52',
                             port: Number(587),
                             secure: false, 
                             auth: {
-                              user: 'strux.ware',
-                              pass: 'baac@123',
+                              user: 'demo',
+                              pass: 'demo@123',
                             },
                     connectionTimeout: 60000,
                     greetingTimeout: 30000,
@@ -246,7 +192,6 @@ var filePath = join(__dirname, 'public', 'emailConfigs.json');
                   },
                   verifyTransporters: false,
                 };
-            //------------------------
           }else{
               // Database ------------
                 return {
@@ -281,12 +226,12 @@ var filePath = join(__dirname, 'public', 'emailConfigs.json');
               // Fix data---------------
                 return {
                   transport: { 
-                            host: '172.29.16.52',
+                            host: '102.19.16.12',
                             port: Number(587),
                             secure: false, 
                             auth: {
-                              user: 'strux.ware',
-                              pass: 'baac@123',
+                              user: 'demo',
+                              pass: 'demo@123',
                             },
                     connectionTimeout: 60000,
                     greetingTimeout: 30000,

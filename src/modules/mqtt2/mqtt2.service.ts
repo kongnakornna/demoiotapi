@@ -103,7 +103,7 @@ import {
 } from '@helpers/format.helper';
 var moment = require('moment');
 var connectUrl_mqtt: any =
-  process.env.MQTT_HOST2 || 'mqtt://broker.hivemq.com:1883';
+  process.env.MQTT_HOST2 || 'mqtt://broker.mmm.com:1883';
 if (!connectUrl_mqtt) {
   var connectUrl_mqtt: any = process.env.MQTT_HOST || 'mqtt://localhost:1883';
 }

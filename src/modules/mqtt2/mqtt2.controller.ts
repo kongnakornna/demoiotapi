@@ -43,7 +43,7 @@ var moment = require('moment');
 import 'dotenv/config';
 var tzString = process.env.tzString;
 var connectUrl_mqtt: any =
-  process.env.MQTT_HOST2 || 'mqtt://broker.hivemq.com:1883';
+  process.env.MQTT_HOST2;
 if (!connectUrl_mqtt) {
   var connectUrl_mqtt: any = process.env.MQTT_HOST || 'mqtt://localhost:1883';
 }
