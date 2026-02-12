@@ -20,7 +20,7 @@ pipeline {
         COMPOSE_FILE_PROD = "docker-compose-production.yml"
         
         // Git Configuration
-        GIT_REPO = "https://github.com/kongnakornna/icmonapi.git"
+        GIT_REPO = "https://github.com/kongnakornna/demoiotapi.git"
         GIT_BRANCH = "main"
         
         // Paths

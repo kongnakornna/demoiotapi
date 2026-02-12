@@ -1,1 +1,0 @@
-{"version":3,"file":"sqlitedatabases.config.js","sourceRoot":"","sources":["../../../../src/config/db/sqlitedatabases.config.ts"],"names":[],"mappings":";;;AACA,yBAAuB;AACvB,OAAO,CAAC,QAAQ,CAAC,CAAC,MAAM,EAAE,CAAC;AAGd,QAAA,iBAAiB,GAA2B;IACvD,OAAO,EAAE,QAAQ;IACjB,OAAO,EAAG,OAAO,CAAC,GAAG,CAAC,oBAAoB,IAAI,2BAA2B;IACzE,cAAc,EAAE,IAAI;IACpB,WAAW,EAAE,IAAI;CAClB,CAAC"}
