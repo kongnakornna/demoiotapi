@@ -1,0 +1,28 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ENV_CONSTANTS = void 0;
+var ENV_CONSTANTS;
+(function (ENV_CONSTANTS) {
+    ENV_CONSTANTS["NODE_ENV"] = "NODE_ENV";
+    ENV_CONSTANTS["PORT"] = "3004";
+    ENV_CONSTANTS["WEB_APP_BASE_URL"] = "http://localhost";
+    ENV_CONSTANTS["AUTH_JWT_SECRET"] = "tpa#lum!SXwGL11Q";
+    ENV_CONSTANTS["AZURE_STORAGE_ACCESS_KEY"] = "AZURE_STORAGE_ACCESS_KEY";
+    ENV_CONSTANTS["AZURE_STORAGE_ACCOUNT"] = "AZURE_STORAGE_ACCOUNT";
+    ENV_CONSTANTS["API_KEYS"] = "NH^7*kE>.WncAGU>EGR>.P37:YEB+Kx";
+    ENV_CONSTANTS["jwtSecretKey"] = "b7CE24QOuM/uxzl9DKMuQ80JP1YY4d08CU3PTmt1JW0e4SVpFlme77";
+    ENV_CONSTANTS["jwtRefreshTokenKey"] = "0+UxR5eN9C61tVIYvGXokNnFkYAxH0NZAF1VhO4J+qwm6uUR0d5DGCC8w==";
+    ENV_CONSTANTS["TYPEORM_HOST"] = "localhost";
+    ENV_CONSTANTS["TYPEORM_PORT"] = "5432";
+    ENV_CONSTANTS["TYPEORM_USERNAME"] = "postgres";
+    ENV_CONSTANTS["TYPEORM_PASSWORD"] = "root";
+    ENV_CONSTANTS["TYPEORM_DATABASE"] = "nest_cmon";
+    ENV_CONSTANTS["TYPEORM_ENTITIES"] = "../entities/**/*.entity{.ts,.js}";
+    ENV_CONSTANTS["TYPEORM_CONNECTION"] = "TYPEORM_CONNECTION";
+    ENV_CONSTANTS["TYPEORM_MIGRATIONS_DIR"] = "migrations";
+    ENV_CONSTANTS["TYPEORM_MIGRATIONS"] = "/**/*{.ts,.js}";
+    ENV_CONSTANTS["TYPEORM_MIGRATIONS_RUN"] = "false";
+    ENV_CONSTANTS["TYPEORM_SYNCHRONIZE"] = "false";
+    ENV_CONSTANTS["TYPEORM_DEBUG"] = "true";
+})(ENV_CONSTANTS = exports.ENV_CONSTANTS || (exports.ENV_CONSTANTS = {}));
+//# sourceMappingURL=env.constants.js.map

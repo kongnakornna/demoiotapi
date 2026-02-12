@@ -1,0 +1,31 @@
+export declare class aircontrollog {
+    id: string;
+    alarm_action_id: number;
+    air_control_id: number;
+    device_id: number;
+    type_id: number;
+    temperature: string;
+    warning: string;
+    recovery: string;
+    period: string;
+    percent: string;
+    firealarm: string;
+    humidityalarm: string;
+    air2_alarm: string;
+    air1_alarm: string;
+    temperaturealarm: string;
+    mode: string;
+    state_air1: string;
+    state_air2: string;
+    temperaturealarmoff: string;
+    ups_alarm: string;
+    ups2_alarm: string;
+    hssdalarm: string;
+    waterleakalarm: string;
+    date: string;
+    time: string;
+    data: string;
+    status: string;
+    createddate: Date;
+    updateddate: Date;
+}

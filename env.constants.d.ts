@@ -1,0 +1,23 @@
+export declare enum ENV_CONSTANTS {
+    NODE_ENV = "NODE_ENV",
+    PORT = "3004",
+    WEB_APP_BASE_URL = "http://localhost",
+    AUTH_JWT_SECRET = "tpa#lum!SXwGL11Q",
+    AZURE_STORAGE_ACCESS_KEY = "AZURE_STORAGE_ACCESS_KEY",
+    AZURE_STORAGE_ACCOUNT = "AZURE_STORAGE_ACCOUNT",
+    API_KEYS = "NH^7*kE>.WncAGU>EGR>.P37:YEB+Kx",
+    jwtSecretKey = "b7CE24QOuM/uxzl9DKMuQ80JP1YY4d08CU3PTmt1JW0e4SVpFlme77",
+    jwtRefreshTokenKey = "0+UxR5eN9C61tVIYvGXokNnFkYAxH0NZAF1VhO4J+qwm6uUR0d5DGCC8w==",
+    TYPEORM_HOST = "localhost",
+    TYPEORM_PORT = "5432",
+    TYPEORM_USERNAME = "postgres",
+    TYPEORM_PASSWORD = "root",
+    TYPEORM_DATABASE = "nest_cmon",
+    TYPEORM_ENTITIES = "../entities/**/*.entity{.ts,.js}",
+    TYPEORM_CONNECTION = "TYPEORM_CONNECTION",
+    TYPEORM_MIGRATIONS_DIR = "migrations",
+    TYPEORM_MIGRATIONS = "/**/*{.ts,.js}",
+    TYPEORM_MIGRATIONS_RUN = "false",
+    TYPEORM_SYNCHRONIZE = "false",
+    TYPEORM_DEBUG = "true"
+}

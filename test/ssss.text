@@ -1,0 +1,437 @@
+SELECT COUNT(DISTINCT("d"."device_id")) AS "cnt" 
+FROM "public"."sd_iot_device" "d" 
+INNER JOIN "public"."sd_iot_schedule_device" "sd" ON "sd"."device_id"= "d"."device_id"  
+INNER JOIN "public"."sd_iot_schedule" "scd" ON "scd"."schedule_id"= "sd"."schedule_id"  
+INNER JOIN "public"."sd_iot_device_type" "t" ON "t"."type_id" = "d"."type_id"  
+INNER JOIN "public"."sd_iot_mqtt" "mq" ON "mq"."mqtt_id" = "d"."mqtt_id"  
+INNER JOIN "public"."sd_iot_location" "l" ON "l"."location_id"= "mq"."location_id" 
+WHERE 1=1 
+-- AND "d"."status"=1 AND "mq"."status"=1 AND "scd"."status"=1 
+-- AND "l"."ipaddress"='mqtt://172.25.99.10:1883'
+
+
+
+
+
+SELECT COUNT(DISTINCT("d"."device_id")) AS "cnt" 
+FROM "public"."sd_iot_device" "d" 
+INNER JOIN "public"."sd_iot_schedule_device" "sd" ON "sd"."device_id"= "d"."device_id"  
+INNER JOIN "public"."sd_iot_schedule" "scd" ON "scd"."schedule_id"= "sd"."schedule_id"  
+INNER JOIN "public"."sd_iot_device_type" "t" ON "t"."type_id" = "d"."type_id"  
+INNER JOIN "public"."sd_iot_mqtt" "mq" ON "mq"."mqtt_id" = "d"."mqtt_id"  
+INNER JOIN "public"."sd_iot_location" "l" ON "l"."location_id"= "mq"."location_id" 
+WHERE 1=1 
+-- AND "d"."status"=1 AND "mq"."status"=1 AND "scd"."status"=1 
+-- AND "l"."ipaddress"='mqtt://172.25.99.10:1883'
+
+
+
+
+
+
+
+
+/*
+
+SELECT COUNT(DISTINCT("d"."device_id")) AS "cnt" 
+FROM "public"."sd_iot_device" "d" 
+INNER JOIN "public"."sd_iot_schedule_device" "sd" ON "sd"."device_id"= "d"."device_id"  
+INNER JOIN "public"."sd_iot_schedule" "scd" ON "scd"."schedule_id"= "sd"."schedule_id"  
+INNER JOIN "public"."sd_iot_device_type" "t" ON "t"."type_id" = "d"."type_id"  
+INNER JOIN "public"."sd_iot_mqtt" "mq" ON "mq"."mqtt_id" = "d"."mqtt_id"  
+INNER JOIN "public"."sd_iot_location" "l" ON "l"."location_id"= "mq"."location_id" 
+WHERE 1=1 
+AND "d"."status"=1 AND "mq"."status"=1 AND "scd"."status"=1 
+AND "l"."ipaddress"='mqtt://172.25.99.10:1883'
+
+
+apicmon  | query: SELECT "schedule"."schedule_id" AS schedule_id, "schedule"."schedule_name" AS schedule_name, "d"."device_name" AS device_name, "schedule"."device_id" AS device_id, "schedule"."start" AS start, "schedule"."event" AS event, "schedule"."sunday" AS sunday, "schedule"."monday" AS monday, "schedule"."tuesday" AS tuesday, "schedule"."wednesday" AS wednesday, "schedule"."thursday" AS thursday, "schedule"."friday" AS friday, "schedule"."saturday" AS saturday, "schedule"."createddate" AS createddate, "schedule"."updateddate" AS updateddate, "schedule"."status" AS status FROM "public"."sd_iot_schedule" "schedule" LEFT JOIN "public"."sd_iot_device" "d" ON "d"."device_id"= "schedule"."schedule_id"
+apicmon  | sort=
+apicmon  | createddate-ASC
+apicmon  | sortField=CREATEDDATE
+apicmon  | sortOrder=ASC
+apicmon  | sortResult=
+apicmon  | { sortField: 'CREATEDDATE', sortOrder: 'ASC' }
+apicmon  | query: SELECT "schedule"."schedule_id" AS schedule_id, "schedule"."schedule_name" AS schedule_name, "d"."device_name" AS device_name, "schedule"."device_id" AS device_id, "schedule"."start" AS start, "schedule"."event" AS event, "schedule"."sunday" AS sunday, "schedule"."monday" AS monday, "schedule"."tuesday" AS tuesday, "schedule"."wednesday" AS wednesday, "schedule"."thursday" AS thursday, "schedule"."friday" AS friday, "schedule"."saturday" AS saturday, "schedule"."createddate" AS createddate, "schedule"."updateddate" AS updateddate, "schedule"."status" AS status FROM "public"."sd_iot_schedule" "schedule" LEFT JOIN "public"."sd_iot_device" "d" ON "d"."device_id"= "schedule"."schedule_id" ORDER BY schedule.CREATEDDATE ASC LIMIT 10 OFFSET 0
+apicmon  | device_list_paginate_active dto=
+apicmon  | { schedule_id: 1 }
+apicmon  | query: SELECT COUNT(DISTINCT "sc"."device_id") AS "cnt" FROM "public"."sd_iot_schedule_device" "sc" WHERE 1=1 AND "sc"."schedule_id"=$1 -- PARAMETERS: [1]
+apicmon  | query: SELECT COUNT(1) AS "cnt" FROM "public"."sd_iot_schedule_device" "sc" WHERE 1=1 AND "sc"."schedule_id"=$1 -- PARAMETERS: [1]
+apicmon  | count =>1
+apicmon  | tempCountt.count =>[object Object]
+apicmon  | device_list_paginate_active dto=
+apicmon  | { schedule_id: 2 }
+apicmon  | query: SELECT COUNT(DISTINCT "sc"."device_id") AS "cnt" FROM "public"."sd_iot_schedule_device" "sc" WHERE 1=1 AND "sc"."schedule_id"=$1 -- PARAMETERS: [2]
+apicmon  | query: SELECT COUNT(1) AS "cnt" FROM "public"."sd_iot_schedule_device" "sc" WHERE 1=1 AND "sc"."schedule_id"=$1 -- PARAMETERS: [2]
+apicmon  | count =>0
+apicmon  | tempCountt.count =>[object Object]
+apicmon  | device_list_paginate_active dto=
+apicmon  | { schedule_id: 3 }
+apicmon  | query: SELECT COUNT(DISTINCT "sc"."device_id") AS "cnt" FROM "public"."sd_iot_schedule_device" "sc" WHERE 1=1 AND "sc"."schedule_id"=$1 -- PARAMETERS: [3]
+apicmon  | query: SELECT COUNT(1) AS "cnt" FROM "public"."sd_iot_schedule_device" "sc" WHERE 1=1 AND "sc"."schedule_id"=$1 -- PARAMETERS: [3]
+apicmon  | count =>0
+apicmon  | tempCountt.count =>[object Object]
+apicmon  | device_list_paginate_active dto=
+apicmon  | { schedule_id: 4 }
+apicmon  | query: SELECT COUNT(DISTINCT "sc"."device_id") AS "cnt" FROM "public"."sd_iot_schedule_device" "sc" WHERE 1=1 AND "sc"."schedule_id"=$1 -- PARAMETERS: [4]
+apicmon  | query: SELECT COUNT(1) AS "cnt" FROM "public"."sd_iot_schedule_device" "sc" WHERE 1=1 AND "sc"."schedule_id"=$1 -- PARAMETERS: [4]
+apicmon  | count =>0
+apicmon  | tempCountt.count =>[object Object]
+apicmon  | device_list_paginate_active dto=
+apicmon  | { schedule_id: 5 }
+apicmon  | query: SELECT COUNT(DISTINCT "sc"."device_id") AS "cnt" FROM "public"."sd_iot_schedule_device" "sc" WHERE 1=1 AND "sc"."schedule_id"=$1 -- PARAMETERS: [5]
+apicmon  | query: SELECT COUNT(1) AS "cnt" FROM "public"."sd_iot_schedule_device" "sc" WHERE 1=1 AND "sc"."schedule_id"=$1 -- PARAMETERS: [5]
+apicmon  | count =>0
+apicmon  | tempCountt.count =>[object Object]
+apicmon  | device_list_paginate_active dto=
+apicmon  | { schedule_id: 6 }
+apicmon  | query: SELECT COUNT(DISTINCT "sc"."device_id") AS "cnt" FROM "public"."sd_iot_schedule_device" "sc" WHERE 1=1 AND "sc"."schedule_id"=$1 -- PARAMETERS: [6]
+apicmon  | query: SELECT COUNT(1) AS "cnt" FROM "public"."sd_iot_schedule_device" "sc" WHERE 1=1 AND "sc"."schedule_id"=$1 -- PARAMETERS: [6]
+apicmon  | count =>0
+apicmon  | tempCountt.count =>[object Object]
+apicmon  | device_list_paginate_active dto=
+apicmon  | { schedule_id: 7 }
+apicmon  | query: SELECT COUNT(DISTINCT "sc"."device_id") AS "cnt" FROM "public"."sd_iot_schedule_device" "sc" WHERE 1=1 AND "sc"."schedule_id"=$1 -- PARAMETERS: [7]
+apicmon  | query: SELECT COUNT(1) AS "cnt" FROM "public"."sd_iot_schedule_device" "sc" WHERE 1=1 AND "sc"."schedule_id"=$1 -- PARAMETERS: [7]
+apicmon  | count =>0
+apicmon  | tempCountt.count =>[object Object]
+apicmon  | device_list_paginate_active dto=
+apicmon  | { schedule_id: 8 }
+apicmon  | query: SELECT COUNT(DISTINCT "sc"."device_id") AS "cnt" FROM "public"."sd_iot_schedule_device" "sc" WHERE 1=1 AND "sc"."schedule_id"=$1 -- PARAMETERS: [8]
+apicmon  | query: SELECT COUNT(1) AS "cnt" FROM "public"."sd_iot_schedule_device" "sc" WHERE 1=1 AND "sc"."schedule_id"=$1 -- PARAMETERS: [8]
+apicmon  | count =>0
+apicmon  | tempCountt.count =>[object Object]
+apicmon  | device_list_paginate_active dto=
+apicmon  | { schedule_id: 9 }
+apicmon  | query: SELECT COUNT(DISTINCT "sc"."device_id") AS "cnt" FROM "public"."sd_iot_schedule_device" "sc" WHERE 1=1 AND "sc"."schedule_id"=$1 -- PARAMETERS: [9]
+apicmon  | query: SELECT COUNT(1) AS "cnt" FROM "public"."sd_iot_schedule_device" "sc" WHERE 1=1 AND "sc"."schedule_id"=$1 -- PARAMETERS: [9]
+apicmon  | count =>0
+apicmon  | tempCountt.count =>[object Object]
+apicmon  | device_list_paginate_active dto=
+apicmon  | { schedule_id: 10 }
+apicmon  | query: SELECT COUNT(DISTINCT "sc"."device_id") AS "cnt" FROM "public"."sd_iot_schedule_device" "sc" WHERE 1=1 AND "sc"."schedule_id"=$1 -- PARAMETERS: [10]
+apicmon  | query: SELECT COUNT(1) AS "cnt" FROM "public"."sd_iot_schedule_device" "sc" WHERE 1=1 AND "sc"."schedule_id"=$1 -- PARAMETERS: [10]
+apicmon  | count =>0
+apicmon  | tempCountt.count =>[object Object]
+apicmon  | dayall=>
+apicmon  | Monday, January 26, 2026
+apicmon  | today=>
+apicmon  | Monday
+apicmon  | dayall=>
+apicmon  | Monday, January 26, 2026
+apicmon  | dto=
+apicmon  | { status: 1 }
+apicmon  | query: SELECT "u"."role_id" as role_id, "u"."email" as email, "u"."username" as username, "u"."public_notification" as public_notification, "u"."sms_notification" as sms_notification, "u"."email_notification" as email_notification, "u"."line_notification" as line_notification, "u"."mobile_number" as mobile_number, "u"."phone_number" as phone_number, "u"."lineid" as lineid FROM "public"."sd_user" "u" WHERE ( 1=1 AND "u"."email_notification"=$1 AND "u"."active_status"=$2 AND "u"."status" IN($3) ) AND ( "u"."deletedate" IS NULL ) -- PARAMETERS: [1,1,1]
+apicmon  | query: SELECT "u"."role_id" as role_id, "u"."email" as email, "u"."username" as username, "u"."public_notification" as public_notification, "u"."sms_notification" as sms_notification, "u"."email_notification" as email_notification, "u"."line_notification" as line_notification, "u"."mobile_number" as mobile_number, "u"."phone_number" as phone_number, "u"."lineid" as lineid FROM "public"."sd_user" "u" WHERE ( 1=1 AND "u"."email_notification"=$1 AND "u"."active_status"=$2 AND "u"."status" IN($3) ) AND ( "u"."deletedate" IS NULL ) ORDER BY "u"."createddate" ASC -- PARAMETERS: [1,1,1]
+apicmon  | rs =>
+apicmon  | query: SELECT COUNT(DISTINCT "d"."device_id") AS "cnt" FROM "public"."sd_iot_device" "d" INNER JOIN "public"."sd_iot_schedule_device" "sd" ON "sd"."device_id"= "d"."device_id"  INNER JOIN "public"."sd_iot_schedule" "scd" ON "scd"."schedule_id"= "sd"."schedule_id"  INNER JOIN "public"."sd_iot_device_type" "t" ON "t"."type_id" = "d"."type_id"  INNER JOIN "public"."sd_iot_mqtt" "mq" ON "mq"."mqtt_id" = "d"."mqtt_id"  INNER JOIN "public"."sd_iot_location" "l" ON "l"."location_id"= "mq"."location_id" WHERE 1=1 AND "d"."status"=$1 AND "mq"."status"=$1 AND "scd"."status"=$1 AND "l"."ipaddress"=$2 -- PARAMETERS: [1,"mqtt://172.25.99.10:1883"]
+apicmon  | query: SELECT COUNT(DISTINCT("d"."device_id")) AS "cnt" FROM "public"."sd_iot_device" "d" INNER JOIN "public"."sd_iot_schedule_device" "sd" ON "sd"."device_id"= "d"."device_id"  INNER JOIN "public"."sd_iot_schedule" "scd" ON "scd"."schedule_id"= "sd"."schedule_id"  INNER JOIN "public"."sd_iot_device_type" "t" ON "t"."type_id" = "d"."type_id"  INNER JOIN "public"."sd_iot_mqtt" "mq" ON "mq"."mqtt_id" = "d"."mqtt_id"  INNER JOIN "public"."sd_iot_location" "l" ON "l"."location_id"= "mq"."location_id" WHERE 1=1 AND "d"."status"=$1 AND "mq"."status"=$1 AND "scd"."status"=$1 AND "l"."ipaddress"=$2 -- PARAMETERS: [1,"mqtt://172.25.99.10:1883"]
+apicmon  | dayall=>
+apicmon  | Monday, January 26, 2026
+apicmon  | today=>
+apicmon  | Monday
+apicmon  | dayall=>
+apicmon  | Monday, January 26, 2026
+apicmon  | dto=
+apicmon  | { status: 1 }
+apicmon  | query: SELECT "u"."role_id" as role_id, "u"."email" as email, "u"."username" as username, "u"."public_notification" as public_notification, "u"."sms_notification" as sms_notification, "u"."email_notification" as email_notification, "u"."line_notification" as line_notification, "u"."mobile_number" as mobile_number, "u"."phone_number" as phone_number, "u"."lineid" as lineid FROM "public"."sd_user" "u" WHERE ( 1=1 AND "u"."email_notification"=$1 AND "u"."active_status"=$2 AND "u"."status" IN($3) ) AND ( "u"."deletedate" IS NULL ) -- PARAMETERS: [1,1,1]
+apicmon  | query: SELECT "u"."role_id" as role_id, "u"."email" as email, "u"."username" as username, "u"."public_notification" as public_notification, "u"."sms_notification" as sms_notification, "u"."email_notification" as email_notification, "u"."line_notification" as line_notification, "u"."mobile_number" as mobile_number, "u"."phone_number" as phone_number, "u"."lineid" as lineid FROM "public"."sd_user" "u" WHERE ( 1=1 AND "u"."email_notification"=$1 AND "u"."active_status"=$2 AND "u"."status" IN($3) ) AND ( "u"."deletedate" IS NULL ) ORDER BY "u"."createddate" ASC -- PARAMETERS: [1,1,1]
+apicmon  | rs =>
+apicmon  | query: SELECT COUNT(DISTINCT "d"."device_id") AS "cnt" FROM "public"."sd_iot_device" "d" INNER JOIN "public"."sd_iot_schedule_device" "sd" ON "sd"."device_id"= "d"."device_id"  INNER JOIN "public"."sd_iot_schedule" "scd" ON "scd"."schedule_id"= "sd"."schedule_id"  INNER JOIN "public"."sd_iot_device_type" "t" ON "t"."type_id" = "d"."type_id"  INNER JOIN "public"."sd_iot_mqtt" "mq" ON "mq"."mqtt_id" = "d"."mqtt_id"  INNER JOIN "public"."sd_iot_location" "l" ON "l"."location_id"= "mq"."location_id" WHERE 1=1 AND "d"."status"=$1 AND "mq"."status"=$1 AND "scd"."status"=$1 AND "l"."ipaddress"=$2 -- PARAMETERS: [1,"mqtt://172.25.99.10:1883"]
+apicmon  | query: SELECT COUNT(DISTINCT("d"."device_id")) AS "cnt" FROM "public"."sd_iot_device" "d" INNER JOIN "public"."sd_iot_schedule_device" "sd" ON "sd"."device_id"= "d"."device_id"  INNER JOIN "public"."sd_iot_schedule" "scd" ON "scd"."schedule_id"= "sd"."schedule_id"  INNER JOIN "public"."sd_iot_device_type" "t" ON "t"."type_id" = "d"."type_id"  INNER JOIN "public"."sd_iot_mqtt" "mq" ON "mq"."mqtt_id" = "d"."mqtt_id"  INNER JOIN "public"."sd_iot_location" "l" ON "l"."location_id"= "mq"."location_id" WHERE 1=1 AND "d"."status"=$1 AND "mq"."status"=$1 AND "scd"."status"=$1 AND "l"."ipaddress"=$2 -- PARAMETERS: [1,"mqtt://172.25.99.10:1883"]
+apicmon  | dayall=>
+apicmon  | Monday, January 26, 2026
+apicmon  | today=>
+apicmon  | Monday
+apicmon  | dayall=>
+apicmon  | Monday, January 26, 2026
+apicmon  | dto=
+apicmon  | { status: 1 }
+apicmon  | query: SELECT "u"."role_id" as role_id, "u"."email" as email, "u"."username" as username, "u"."public_notification" as public_notification, "u"."sms_notification" as sms_notification, "u"."email_notification" as email_notification, "u"."line_notification" as line_notification, "u"."mobile_number" as mobile_number, "u"."phone_number" as phone_number, "u"."lineid" as lineid FROM "public"."sd_user" "u" WHERE ( 1=1 AND "u"."email_notification"=$1 AND "u"."active_status"=$2 AND "u"."status" IN($3) ) AND ( "u"."deletedate" IS NULL ) -- PARAMETERS: [1,1,1]
+apicmon  | query: SELECT "u"."role_id" as role_id, "u"."email" as email, "u"."username" as username, "u"."public_notification" as public_notification, "u"."sms_notification" as sms_notification, "u"."email_notification" as email_notification, "u"."line_notification" as line_notification, "u"."mobile_number" as mobile_number, "u"."phone_number" as phone_number, "u"."lineid" as lineid FROM "public"."sd_user" "u" WHERE ( 1=1 AND "u"."email_notification"=$1 AND "u"."active_status"=$2 AND "u"."status" IN($3) ) AND ( "u"."deletedate" IS NULL ) ORDER BY "u"."createddate" ASC -- PARAMETERS: [1,1,1]
+apicmon  | rs =>
+apicmon  | query: SELECT COUNT(DISTINCT "d"."device_id") AS "cnt" FROM "public"."sd_iot_device" "d" INNER JOIN "public"."sd_iot_schedule_device" "sd" ON "sd"."device_id"= "d"."device_id"  INNER JOIN "public"."sd_iot_schedule" "scd" ON "scd"."schedule_id"= "sd"."schedule_id"  INNER JOIN "public"."sd_iot_device_type" "t" ON "t"."type_id" = "d"."type_id"  INNER JOIN "public"."sd_iot_mqtt" "mq" ON "mq"."mqtt_id" = "d"."mqtt_id"  INNER JOIN "public"."sd_iot_location" "l" ON "l"."location_id"= "mq"."location_id" WHERE 1=1 AND "d"."status"=$1 AND "mq"."status"=$1 AND "scd"."status"=$1 AND "l"."ipaddress"=$2 -- PARAMETERS: [1,"mqtt://172.25.99.10:1883"]
+apicmon  | query: SELECT COUNT(DISTINCT("d"."device_id")) AS "cnt" FROM "public"."sd_iot_device" "d" INNER JOIN "public"."sd_iot_schedule_device" "sd" ON "sd"."device_id"= "d"."device_id"  INNER JOIN "public"."sd_iot_schedule" "scd" ON "scd"."schedule_id"= "sd"."schedule_id"  INNER JOIN "public"."sd_iot_device_type" "t" ON "t"."type_id" = "d"."type_id"  INNER JOIN "public"."sd_iot_mqtt" "mq" ON "mq"."mqtt_id" = "d"."mqtt_id"  INNER JOIN "public"."sd_iot_location" "l" ON "l"."location_id"= "mq"."location_id" WHERE 1=1 AND "d"."status"=$1 AND "mq"."status"=$1 AND "scd"."status"=$1 AND "l"."ipaddress"=$2 -- PARAMETERS: [1,"mqtt://172.25.99.10:1883"]
+
+ 
+
+
+SELECT 
+        d.device_id AS device_id,
+          sd.schedule_id AS schedule_id,
+          scd.schedule_name AS schedule_name,
+          scd.start AS schedule_event_start,
+          scd.event AS schedule_event,
+          scd.sunday AS sunday,
+          scd.monday AS monday,
+          scd.tuesday AS tuesday,
+          scd.wednesday AS wednesday,
+          scd.thursday AS thursday,
+          scd.friday AS friday,
+          scd.saturday AS saturday,
+        --   d.mqtt_id AS mqtt_id,
+        --   d.setting_id AS setting_id,
+        --   d.type_id AS type_id,
+        --   d.device_name AS device_name,
+        --   d.sn AS sn,
+        --   d.hardware_id AS hardware_id,
+        --   d.status_warning AS status_warning,
+        --   d.recovery_warning AS recovery_warning,
+        --   d.status_alert AS status_alert,
+        --   d.recovery_alert AS recovery_alert,
+        --   d.time_life AS time_life,
+        --   d.period AS period,
+        --   d.work_status AS work_status,
+        --   d.max AS max,
+        --   d.min AS min,
+        --   d.oid AS oid,
+        --   d.mqtt_data_value AS mqtt_data_value,
+        --   d.mqtt_data_control AS mqtt_data_control,
+        --   d.model AS model,
+        --   d.vendor AS vendor,
+        --   d.comparevalue AS comparevalue,
+        --   d.createddate AS createddate,
+        --   d.updateddate AS updateddate,
+        --   d.status AS status,
+        --   d.unit AS unit,
+        --   d.action_id AS action_id,
+        --   d.status_alert_id AS status_alert_id,
+        --   d.measurement AS measurement,
+        --   d.mqtt_control_on AS mqtt_control_on,
+        --   d.mqtt_control_off AS mqtt_control_off,
+        --   d.org AS device_org,
+        --   d.bucket AS device_bucket,
+        --   t.type_name AS type_name,
+        --   l.location_id AS location_id,
+        --   l.location_name AS location_name,
+        --   l.ipaddress AS location_address,
+        --   l.configdata AS configdata,
+        --   mq.mqtt_name AS mqtt_name,
+        --   mq.org AS mqtt_org,
+        --   mq.bucket AS mqtt_bucket,
+        --   mq.envavorment AS mqtt_envavorment,
+        --   mq.host AS mqtt_host,
+        --   mq.port AS mqtt_port,
+        --   d.updateddate AS timestamp,
+        --   d.mqtt_device_name AS mqtt_device_name,
+        --   d.mqtt_status_over_name AS mqtt_status_over_name,
+        --   d.mqtt_status_data_name AS mqtt_status_data_name,
+        --   d.mqtt_act_relay_name AS mqtt_act_relay_name,
+        --   d.mqtt_control_relay_name AS mqtt_control_relay_name
+
+FROM "public"."sd_iot_device" "d" 
+INNER JOIN "public"."sd_iot_schedule_device" "sd" ON "sd"."device_id"= "d"."device_id"  
+INNER JOIN "public"."sd_iot_schedule" "scd" ON "scd"."schedule_id"= "sd"."schedule_id"  
+INNER JOIN "public"."sd_iot_device_type" "t" ON "t"."type_id" = "d"."type_id"  
+INNER JOIN "public"."sd_iot_mqtt" "mq" ON "mq"."mqtt_id" = "d"."mqtt_id"  
+INNER JOIN "public"."sd_iot_location" "l" ON "l"."location_id"= "mq"."location_id" 
+WHERE 1=1  AND "d"."status"=1 and "scd"."status"=1 
+ 
+
+
+
+
+
+
+
+  async mqtt_list_paginate(dto: any): Promise<Mqtt> {
+    console.log(`type_list_paginate dto=`);
+    console.info(dto);
+    try {
+      var mqtt_id: any = dto.mqtt_id;
+      var idhost: any = dto.idhost;
+      var mqtt_type_id: any = dto.mqtt_type_id;
+      var location_id: any = dto.location_id;
+      var keyword: any = dto.keyword || '';
+      var status: any = dto.status;
+      /*****************/
+      var createddate: any = dto.createddate;
+      var updateddate: any = dto.updateddate;
+      var sort: string = dto.sort;
+      var page: number = dto.page || 1;
+      var pageSize: number = dto.pageSize || 10;
+      var isCount: number = dto.isCount || 0;
+      const query: any = await this.MqttRepository.createQueryBuilder('mq');
+      if (isCount == 1) {
+        // var countRs: number = await query.getCount();
+        var countRs: number = await query.select(
+          'COUNT(DISTINCT mq.mqtt_id)',
+          'cnt',
+        );
+      } else {
+        query.select([
+          'mq.mqtt_id AS mqtt_id',
+          'l.location_id AS location_id',
+          'h.idhost AS idhost',
+          'mq.sort AS sort',
+          'mq.mqtt_type_id AS mqtt_type_id',
+          'mq.mqtt_name AS mqtt_name',
+          'mq.host AS host',
+          'mq.port AS port',
+          'mq.username AS username',
+          'mq.password AS password',
+          'mq.secret AS secret',
+          'mq.expire_in AS expire_in',
+          'mq.token_value AS token_value',
+          'mq.org AS org',
+          'mq.bucket AS bucket',
+          'mq.envavorment AS envavorment',
+          'mq.updateddate AS updateddate',
+          'mq.status AS status',
+          'mq.latitude AS latitude',
+          'mq.longitude AS longitude',
+          'mq.mqtt_main_id AS mqtt_main_id',
+          'mq.configuration AS configuration',
+          't.type_name AS type_name',
+          'l.location_name AS location_name',
+          'l.ipaddress AS ipaddress',
+          'l.location_detail AS location_detail',
+        ]);
+      }
+      query.leftJoin('sd_iot_type', 't', 't.type_id = mq.mqtt_type_id');
+      query.leftJoin('sd_iot_host', 'h', 'mq.mqtt_main_id = h.idhost');
+      query.leftJoin('sd_iot_location', 'l', 'l.location_id = mq.location_id');
+      query.where('1=1');
+      if (keyword) {
+        query.andWhere('mq.mqtt_name like :mqtt_name', {
+          mqtt_name: keyword ? `%${keyword}%` : '%',
+        });
+      }
+
+      if (mqtt_id) {
+        query.andWhere('mq.mqtt_id=:mqtt_id', { mqtt_id: mqtt_id });
+      }
+      if (dto.idhost) {
+        query.andWhere('mq.mqtt_main_id=:mqtt_main_id', {
+          mqtt_main_id: dto.idhost,
+        });
+      }
+      if (location_id) {
+        query.andWhere('mq.location_id=:location_id', {
+          location_id: location_id,
+        });
+      }
+      if (mqtt_type_id) {
+        query.andWhere('mq.mqtt_type_id=:mqtt_type_id', {
+          mqtt_type_id: mqtt_type_id,
+        });
+      }
+      if (createddate) {
+        query.andWhere('mq.createddate=:createddate', {
+          createddate: createddate,
+        });
+      }
+      if (dto.secret) {
+        query.andWhere('mq.secret=:secret', { secret: dto.secret });
+      }
+      if (dto.expire_in) {
+        query.andWhere('mq.expire_in=:expire_in', { expire_in: dto.expire_in });
+      }
+      if (dto.token_value) {
+        query.andWhere('mq.token_value=:token_value', {
+          token_value: dto.token_value,
+        });
+      }
+      if (dto.org) {
+        query.andWhere('mq.org=:org', { org: dto.org });
+      }
+      if (dto.bucket) {
+        query.andWhere('mq.bucket=:bucket', { bucket: dto.bucket });
+      }
+      if (dto.envavorment) {
+        query.andWhere('mq.envavorment=:envavorment', {
+          envavorment: dto.envavorment,
+        });
+      }
+      if (updateddate) {
+        query.andWhere('mq.updateddate=:updateddate', {
+          updateddate: updateddate,
+        });
+      }
+      if (status) {
+        query.andWhere('mq.status=:status', { status: status });
+      }
+      query.printSql();
+      query.maxExecutionTime(10000);
+      query.getSql();
+      if (isCount == 1) {
+        // let tempCounts:any = {};
+        // tempCountt.count = countRs;
+        // return tempCountt.count;
+        var count: any = await query.getCount();
+        let tempCounts: any = {};
+        tempCounts.count = countRs;
+        console.log(`count =>` + count);
+        console.log(`tempCountt.count =>` + tempCounts.count);
+        return count;
+      } else {
+        // Sorting logic
+        if (sort) {
+          const sortResult = convertSortInput(sort);
+          if (sortResult == false) {
+            throw new BadRequestException(`Invalid sort option.`);
+          }
+          const { sortField, sortOrder } = sortResult;
+          console.log(`sort=`);
+          console.info(sort);
+          console.log(`sortField=` + sortField);
+          console.log(`sortOrder=` + sortOrder);
+          console.log(`sortResult=`);
+          console.info(sortResult);
+          if (sortOrder == 'ASC' || sortOrder == 'asc') {
+            var sortOrders: any = 'ASC';
+          } else if (sortOrder == 'DESC' || sortOrder == 'desc') {
+            var sortOrders: any = 'DESC';
+          } else {
+            var sortOrders: any = 'ASC';
+          }
+          query.orderBy(`mq.${sortField}`, sortOrders.toUpperCase());
+          // query.orderBy(
+          //   `mq.mqtt_id`,
+          //   sortOrder.toUpperCase() == 'ASC' ? 'DESC' : 'ASC',
+          // );
+        } else {
+          // Default sorting
+          // query.orderBy(`mq.mqtt_id`, 'ASC');
+          query.orderBy('mq.sort', 'ASC'); // Default sorting
+          query.addOrderBy(`mq.mqtt_id`, 'ASC');
+        }
+        query.limit(pageSize);
+        query.offset(pageSize * (page - 1));
+        return await query.getRawMany();
+      }
+    } catch (error) {
+      var error1: any = JSON.stringify(error);
+      var error2: any = JSON.parse(error1);
+      throw new UnprocessableEntityException({
+        status: HttpStatus.UNPROCESSABLE_ENTITY,
+        error: {
+          //args: { errorMessage: JSON.stringify(error) },
+          args: { errorMessage: error2 },
+        },
+      });
+    }
+  }
+
+
+
+*/
+
+
+// http://172.25.99.10:3003/v1/mqtt3/devicebuckets?bucket=CMONBUGKET
+// http://172.25.99.10:3003/v1/mqtt3/sensercharts?bucket=CMONBUGKET&measurement=temperature1
+
+// http://172.25.99.10:3003/v1/mqtt3/control?topic=MRTH15052025I2O1V2001/CONTROL&message=ON
+// http://172.25.99.10:3003/v1/mqtt3/control?topic=MRTH15052025I2O1V2001/CONTROL&message=OFF
+
+// http://172.25.99.10:3003/v1/mqtt3/topic?topic=MRMONI05122025V5001/DATA
+// http://172.25.99.10:3003/v1/mqtt3/topic?topic=MRTH15052025I2O1V2001/DATA
+
+// http://172.25.99.10:3003/v1/mqtt3/topic?topic=MRMONI05122025V5001/DATA
+// http://172.25.99.10:3003/v1/mqtt3/devicebuckets?bucket=LDRBUGKET&type_id=
+
+// http://172.25.99.10:3003/v1/mqtt3/devicebuckets?bucket=CMONBUGKET&type_id=&hardware_id=1
+// http://172.25.99.10:3003/v1/mqtt3/sensercharts?bucket=CMONBUGKET&measurement=temperature1
+
+
+

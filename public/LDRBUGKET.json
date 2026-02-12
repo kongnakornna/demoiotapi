@@ -1,0 +1,35 @@
+[
+    {
+        "id": "49dc1f0d5806704c",
+        "type": "influxdb out",
+        "z": "e4971251a22de3d2",
+        "influxdb": "9b9448f4427d3714",
+        "name": "LDRBUGKET-temperature",
+        "measurement": "temperature",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "cmon_org",
+        "bucket": "LDRBUGKET",
+        "x": 1620,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "9b9448f4427d3714",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "my_data",
+        "name": "CmonIoT",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "http://172.25.99.10:8086",
+        "timeout": "",
+        "rejectUnauthorized": true
+    }
+]

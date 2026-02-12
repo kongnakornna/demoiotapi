@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es2017",
+    "typeRoots": ["node_modules/@types"],
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "incremental": true,
+    "paths": {
+      "@entities/*": ["./entities/*"],
+      "@helpers/*": ["src/helpers/*"],
+      "@public/*": ["./public/*"],
+      "@view/*": ["./view/*"],
+      "@template/*": ["./template/*"],
+      "@i18n/*": ["./i18n/*"],
+      "@types/*": ["./types/*"],
+      "@src/*": ["./src/*"],
+      "@test/*": ["test/*"],
+      "@root/*": ["./*"], 
+      "@shared/*": ["./src/shared/*"],
+      "typeorm": ["node_modules/typeorm"],
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "build",
+    "test",
+    "coverage",
+    "**/*.spec.ts",
+    "**/*.test.ts",
+    "**/__tests__",
+    "**/__mocks__"
+  ]
+}

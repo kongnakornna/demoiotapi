@@ -1,0 +1,48 @@
+# Environment files
+.env.local
+.env.*.local
+.env.staging
+.env
+docker-compose.yml
+Dockerfile
+
+# Keep example file
+!.env.example
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Database
+*.sqlite3
+*.db
+postgres-backup/
+data/
+
+# Docker
+# docker-compose.override.yml
+
+# Node
+# node_modules/
+# dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+coverage/
+.nyc_output/
+
+# Temporary
+tmp/
+temp/
+node_modules
